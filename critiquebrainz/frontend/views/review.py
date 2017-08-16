@@ -105,9 +105,8 @@ def entity(id, rev=None):
         exclude=[review["id"]],
     )
     other_reviews = user_all_reviews[:3]
-    return render_template('review/entity/%s.html' % review["entity_type"], review=review,
-                           spotify_mappings=spotify_mappings, soundcloud_url=soundcloud_url,
-                           vote=vote, other_reviews=other_reviews)
+    return render_template('review/entity/%s.html' % review["entity_type"], review=review, spotify_mappings=spotify_mappings,
+                           soundcloud_url=soundcloud_url, vote=vote, other_reviews=other_reviews)
 
 
 @review_bp.route('/<uuid:review_id>/revision/<int:revision_id>')
@@ -137,8 +136,11 @@ def compare(id):
     right = db_revision.get(id, offset=count - new)[0]
     left['number'], right['number'] = old, new
     left['text'], right['text'] = side_by_side_diff(left['text'], right['text'])
+<<<<<<< HEAD
     rating_titles = {20: "Terrible", 40: "Bad", 60: "Average", 80: "Good", 100: "Extradordinary"}
     left['rating_title'], right['rating_title'] = side_by_side_diff(rating_titles[left['rating']], rating_titles[right['rating']])
+=======
+>>>>>>> a4bc45e... Remove rating titles
     return render_template('review/compare.html', review=review, left=left, right=right)
 
 
