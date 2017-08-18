@@ -9,6 +9,7 @@ import critiquebrainz.frontend.external.musicbrainz_db.release as mb_release
 from werkzeug.exceptions import NotFound
 import critiquebrainz.db.avg_rating as db_avg_rating
 import critiquebrainz.db.exceptions as db_exceptions
+from werkzeug.exceptions import NotFound
 
 
 release_group_bp = Blueprint('release_group', __name__)
